@@ -1,0 +1,89 @@
+package Ad.Muzyka;
+
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+class Goods
+{
+    String name;
+    double price;
+
+    Goods()
+    {
+        name="N/A";
+        price=0;
+
+    }
+    Goods(String n,double pr)
+    {
+        name=n;
+        if(pr<0)
+            price=0;
+        else
+            price=pr;
+    }
+    double encDeg(double deg)
+    {
+        double degr;
+        degr=price*deg/100;
+        price+=degr;
+        return price;
+    }
+    double decDeg(double deg)
+    {
+        double degr;
+        degr=price*deg/100;
+        price-=degr;
+        return price;
+    }
+
+}
+
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        int p;double deg,price;String name;
+        Scanner scanner=new Scanner(System.in);
+        Goods good=new Goods();
+
+
+        System.out.println("Введите название товара №1");
+        good.name=scanner.nextLine();
+        System.out.println("Введите название товара №2");
+        name=scanner.nextLine();
+        System.out.println("Введите цену товара №1");
+        good.price=scanner.nextInt();
+        System.out.println("Введите цену товара №2");
+        price=scanner.nextInt();
+        Goods good2=new Goods(name,price);
+
+        System.out.println("1 - Повысить цену на % "+System.lineSeparator()+"2 - Понизить цену на %"+System.lineSeparator()+"9 - Ничего не делать");
+
+        p=scanner.nextInt();
+        if(p==1) {
+            System.out.println("Введите процент");
+            deg=scanner.nextInt();
+            good.encDeg(deg);
+            good2.encDeg(deg);
+            p = 0;
+        }
+        if(p==2) {
+            System.out.println("Введите процент");
+            deg=scanner.nextInt();
+            good.decDeg(deg);
+            good2.decDeg(deg);
+            p = 0;
+        }
+        if(p==9)
+        {
+            p=0;
+        }
+
+
+        System.out.println(good.name+" "+good.price);
+        System.out.println(good2.name+" "+good2.price);
+    }
+}
