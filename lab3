@@ -1,0 +1,79 @@
+package Ad.Muzyka;
+
+import java.util.Scanner;
+
+
+public class Main {
+    public static boolean Str_Ed_Check(String str) {
+
+        String substring=str.substring(str.length()-2);
+        //System.out.println(substring);
+        if(substring.equals("ed"))
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+public static int Str_Sum(String str) {
+    int sum = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if (Character.isDigit(str.charAt(i))) {
+            sum += Integer.parseInt(Character.toString(str.charAt(i)));
+        }
+    }
+    return sum;
+}
+
+public static int Str_Block_Check(String str) {
+    char c = str.charAt(0);
+    int max = 0;
+    int len = 1;
+    for (int i = 1; i < str.length(); i++) {
+        if (str.charAt(i) == c) len++;
+        else {
+            c = str.charAt(i);
+            len = 1;
+        }
+        if (len > max) max = len;
+    }
+    return max;
+}
+
+
+
+    public static void Str_Split(String str)
+    {
+        String[] mas_str=str.split(" ");
+        System.out.println("4:");
+        for(int i=0;i<mas_str.length;i++)
+        {
+            System.out.println(mas_str[i]);
+        }
+    }
+
+public static String Str_Fusion(String stra,String strb)
+{
+String fuse=stra+strb;
+return fuse;
+}
+
+    public static void main(String[] args) {
+System.out.println("Введите строку.");
+
+        String str,str2;
+        Scanner sc = new Scanner(System.in);
+        str = sc.nextLine();
+        System.out.println("Введите еще одну строку.");
+        str2=sc.nextLine();
+        System.out.println("1:"+Str_Ed_Check(str));
+        System.out.println("2:"+Str_Sum(str));
+        System.out.println("3:"+Str_Block_Check(str));
+Str_Split(str);
+        System.out.println("5:"+Str_Fusion(str,str2));
+    }
+}
+
+
