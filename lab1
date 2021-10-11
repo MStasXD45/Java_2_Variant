@@ -1,0 +1,54 @@
+package Ad.Muzyka;
+import java.util.Scanner;
+public class Main {
+
+
+    public static void Mas_Input(String[] mas_String, int kol)
+    {
+        Scanner sc=new Scanner(System.in);
+        for(int i=0;i<kol;i++)
+        {
+            System.out.println("Введите "+i+" строку");
+            mas_String[i]=sc.nextLine();
+        }
+    }
+
+
+    public static void Mas_Sort(String[] mas_String)
+    {
+        for(int i = mas_String.length-1 ; i > 0 ; i--)
+        {
+            for(int j = 0 ; j < i ; j++)
+            {
+                if( mas_String[j].length() > mas_String[j+1].length() )
+                {
+                    String tmp = mas_String[j];
+                    mas_String[j] = mas_String[j+1];
+                    mas_String[j+1] = tmp;
+                }
+            }
+        }
+    }
+
+    public static void Mas_Output(String[] mas_String,int kol)
+    {
+        for(int i=0;i<kol;i++)
+        {
+            System.out.println(mas_String[i]);
+            System.out.println(mas_String[i].length());
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Введите колличество строк");
+        int n=sc.nextInt();
+
+        String[] mas_Strok =new String[n];
+
+        Mas_Input(mas_Strok,n);
+        Mas_Sort(mas_Strok);
+        Mas_Output(mas_Strok,n);
+    }
+}
