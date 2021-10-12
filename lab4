@@ -1,0 +1,47 @@
+package Ad.Muzyka;
+
+import java.util.Scanner;
+
+public class Main {
+
+   static class Dot {
+        protected int x, y;
+
+        private void Insertion() {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Введите координату Х для точки");
+            x = sc.nextInt();
+            System.out.println("Введите координату Y для точки");
+            y = sc.nextInt();
+        }
+    }
+
+   static class Circle extends Dot {
+        private int center_x, center_y, r;
+
+        private void Insertion2(){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Введите координату Х для центра круга");
+            center_x = sc.nextInt();
+            System.out.println("Введите координату Y для центра круга");
+            center_y = sc.nextInt();
+            System.out.println("Введите радиус круга");
+            r = sc.nextInt();
+        }
+
+        boolean Inside(Dot dot) {
+            if (Math.pow((dot.x - center_x), 2) + Math.pow((dot.y - center_y), 2) < Math.pow(r, 2))
+                return true;
+            else
+                return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        Dot dot=new Dot();
+        Circle circle=new Circle();
+        dot.Insertion();
+        circle.Insertion2();
+        System.out.println(circle.Inside(dot));
+    }
+}
