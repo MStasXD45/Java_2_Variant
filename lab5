@@ -1,0 +1,36 @@
+package Ad.Muzyka;
+
+public class Main {
+
+    static class Person{
+private String group;
+protected String name,surname;
+protected int age;
+private int studNum;
+
+public String get_group(){return group;}
+public void set_group(String group){this.group=group;}
+public int get_studNum(){return studNum;}
+public void set_studNum(int studNum){this.studNum=studNum;}
+
+public Person(){
+    group="Р-67";
+    name="Илья";
+    surname="Петров";
+    age=19;
+    studNum=3636;
+}
+
+}
+    static class Student extends Person{
+
+        void print_info(){
+            System.out.println("Студент группы "+get_group()+" "+surname+" "+name+" возраст: "+age+"."
+                    +System.lineSeparator()+"Номер студенческого билета: "+get_studNum());
+        }
+    }
+    public static void main(String[] args) {
+        Student student=new Student();
+        student.print_info();
+    }
+}
